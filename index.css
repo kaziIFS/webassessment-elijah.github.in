@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Exile&display=swap');
+
+* { 
+  background-color: #000000;
+}
+body {
+margin: 0;
+font-family: 'Poppins', sans-serif;
+background: #f5f5f7;
+color: #000000;
+display: flex;
+height: 100vh;
+overflow-x: hidden;
+}
+
+.sidebar {
+position: fixed;
+left: 0;
+top: 0;
+width: 250px;
+height: 100vh;
+background-color: #000000;
+color: rgb(0, 0, 0);
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 2rem 1rem;
+box-shadow: 2px 0 8px rgba(0,0,0,0.4);
+transition: transform 0.3s ease;
+z-index: 1000;
+}
+
+.sidebar.collapsed {
+transform: translateX(-100%);
+}
+
+.sidebar-brand {
+font-family: "Alfa Slab One", serif;
+font-style: normal;
+font-size: 1.8rem;
+font-weight: 700;
+color: #800080;
+margin-bottom: 3rem;
+letter-spacing: 2px;
+user-select: none;
+text-align: center;
+}
+
+nav {
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+width: 100%;
+}
+
+nav a {
+color: white;
+font-weight: 600;
+text-decoration: none;
+padding: 0.8rem 1.2rem;
+border-radius: 6px;
+display: block;
+font-size: 1.1rem;
+transition: background-color 0.3s ease;
+user-select: none;
+}
+
+nav a:hover,
+nav a.active {
+background-color: #4B0082;
+color: white;
+}
+
+.sidebar-toggle {
+position: fixed;
+top: 1rem;
+left: 1rem;
+background: #4B0082;
+border: none;
+color: white;
+padding: 0.5rem 0.7rem;
+border-radius: 4px;
+cursor: pointer;
+font-size: 1.3rem;
+z-index: 1100;
+display: none;
+}
+
+main {
+margin-left: 250px;
+flex: 1;
+padding: 3rem 2rem;
+overflow-y: auto;
+
+
+}
+
+
+
+main h1 {
+font-size: 2.8rem;
+margin-bottom: 1rem;
+color: #800080;
+letter-spacing: 2px;
+font-family: "Alfa Slab One", serif;
+}
+
+main p {
+font-size: 1.2rem;
+color: #ffffff;
+line-height: 1.6;
+max-width: 650px;
+}
+
+@media (max-width: 768px) {
+.sidebar {
+transform: translateX(-100%);
+position: fixed;
+height: 100vh;
+}
+.sidebar.collapsed {
+transform: translateX(0);
+}
+main {
+margin-left: 0;
+padding: 2rem 1rem;
+}
+.sidebar-toggle {
+display: block;
+}
+
+.overlay {
+display: none;
+position: fixed;
+top: 0; left: 0;
+width: 100vw; height: 100vh;
+background: rgba(0,0,0,0.5);
+z-index: 900;
+transition: opacity 0.3s ease;
+}
+
+.overlay.visible {
+display: block;
+}
+}

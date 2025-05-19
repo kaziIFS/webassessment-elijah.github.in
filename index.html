@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZeboSneakers. - Home</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation menu">&#9776;</button>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">ZeboSneakers.</div>
+    <nav id="sidebarNav" aria-label="Main Navigation">
+      <a href="index.html">Home</a>
+      <a href="nike.html">Nike</a>
+      <a href="adidas.html">Adidas</a>
+      <a href="puma.html">Puma</a>
+      <a href="newbalance.html">New Balance</a>
+      <a href="lining.html">Li Ning</a>
+     
+    </nav>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+    <h1>Welcome to the <br>offcial ZeboSneakers. website</h1>
+    <p>
+      ZeboSneakers. is an innovative project from the mind of a young student-athlete that combines the two aspects of basketball and programming.
+       <br>
+       <br>
+    Explore the basketball world's leading brands such as Nike, Adidas, Puma, New Balance, Li Ning 
+    along with their latest ground breaking sneaker releases</p>
+  </main>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleButton = document.getElementById('sidebarToggle');
+    const overlay = document.getElementById('overlay');
+    const navLinks = sidebar.querySelectorAll('nav a');
+
+  
+    toggleButton.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      overlay.classList.toggle('visible');
+    });
+    overlay.addEventListener('click', () => {
+      sidebar.classList.add('collapsed');
+      overlay.classList.remove('visible');
+    });
+
+   
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if(window.innerWidth <= 768){
+          sidebar.classList.add('collapsed');
+          overlay.classList.remove('visible');
+        }
+      });
+    });
+
+    
+    navLinks.forEach(link => link.classList.remove('active'));
+  </script>
+</body>
+</html>
+
+
